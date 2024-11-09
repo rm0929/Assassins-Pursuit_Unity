@@ -51,5 +51,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "FallGuysGame.sln"
+    "dotnet.defaultSolution": "Echoed_Labyrinth.sln"
 }
