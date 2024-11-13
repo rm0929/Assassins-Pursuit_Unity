@@ -7,6 +7,8 @@ TagManager:
   - Ground
   - PlayerSpawnPoint
   - LevelLoader
+  - Key
+  - Door
   layers:
   - Default
   - TransparentFX

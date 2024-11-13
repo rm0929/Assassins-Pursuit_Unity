@@ -12,7 +12,7 @@ public class CameraFollow : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);  // Persist camera across scenes
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -22,9 +22,9 @@ public class CameraFollow : MonoBehaviour
 
     void LateUpdate()
     {
-        if (PlayerMovement.Instance != null)
+        if (PlayerController.Instance != null)
         {
-            transform.position = PlayerMovement.Instance.transform.position + offset;
+            transform.position = PlayerController.Instance.transform.position + offset;
             transform.rotation = Quaternion.Euler(cameraRotation);
         }
     }
