@@ -95,16 +95,15 @@ public class enemyAIPatrol : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
+
         Debug.Log("Triggered by: " + other.name); // Check which object triggered the event
 
         var player = other.GetComponent<PlayerMovement>();
         if (player != null)
         {
-            Debug.Log("HIT");
-        }
-        else
-        {
-            Debug.Log("Player not found");
+            playerHealth.TakeDamage(1); // Deal 1 damage to the player
+            Debug.Log("Player hit by enemy, taking 1 damage.");
         }
     }
 }
