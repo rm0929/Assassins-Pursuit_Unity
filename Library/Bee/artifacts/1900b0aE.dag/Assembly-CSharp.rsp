@@ -361,9 +361,11 @@
 "Assets/Scripts/DoorController.cs"
 "Assets/Scripts/enemyAIPatrol.cs"
 "Assets/Scripts/KeyPickup.cs"
+"Assets/Scripts/PlayerAttack.cs"
 "Assets/Scripts/PlayerController.cs"
 "Assets/Scripts/PlayerHealth.cs"
 "Assets/Scripts/PlayerMovement.cs"
+"Assets/Scripts/Projectile.cs"
 -langversion:9.0
 /deterministic
 /optimize+

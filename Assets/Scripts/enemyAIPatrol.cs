@@ -28,7 +28,20 @@ public class enemyAIPatrol : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.Find("Player");
         animator = GetComponent<Animator>();
-        boxCollider = GetComponentInChildren<BoxCollider>();
+
+        GameObject attackColliderObject = GameObject.FindGameObjectWithTag("attackCollider");
+
+        if (attackColliderObject != null)
+        {
+            boxCollider = attackColliderObject.GetComponent<BoxCollider>();
+            boxCollider.isTrigger = true; // Ensure it's set as a trigger
+        }
+        else
+        {
+            Debug.LogWarning("No BoxCollider with the tag 'attackCollider' found.");
+        }
+        
+        // boxCollider = GetComponentInChildren<BoxCollider>();
         boxCollider.isTrigger = true; // Ensure it's set as a trigger
 
         if (boxCollider == null)
@@ -97,7 +110,18 @@ public class enemyAIPatrol : MonoBehaviour
     {
         PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
 
-        Debug.Log("Triggered by: " + other.name); // Check which object triggered the event
+        Debug.Log("Triggered by: " + other.name); //w Check which object triggered the event
+        if (other.CompareTag("Projectile"))
+        {
+            // Destroy the projectile that collided with the enemy
+            Destroy(other.gameObject);
+
+            // Debug message saying the enemy took damage
+            Debug.Log("Enemy took 1 damage.");
+
+            // You can also add logic to deal damage to the enemy here if required
+            // For example, reducing the enemy's health or triggering a health system
+        }
 
         var player = other.GetComponent<PlayerMovement>();
         if (player != null)

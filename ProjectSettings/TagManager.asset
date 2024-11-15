@@ -9,6 +9,9 @@ TagManager:
   - LevelLoader
   - Key
   - Door
+  - Enemy
+  - attackCollider
+  - Projectile
   layers:
   - Default
   - TransparentFX
