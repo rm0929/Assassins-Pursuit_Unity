@@ -7,11 +7,13 @@ public class PlayerHealth : MonoBehaviour
     private int currentHealth;
 
     [SerializeField] private Slider healthBar; // Reference to the health bar slider in the UI
+    private Animator animator; // Reference to the Animator
 
     private void Start()
     {
         currentHealth = maxHealth; // Initialize player's health to max
         UpdateHealthBar(); // Update health bar at the start
+        animator = GetComponent<Animator>(); // Get the Animator component
     }
 
     public void TakeDamage(int damage)
@@ -41,6 +43,7 @@ public class PlayerHealth : MonoBehaviour
     private void Die()
     {
         Debug.Log("Player has died.");
-        // Add code here to handle player death (e.g., restart level, show game over screen)
+        animator.SetTrigger("playerIsDead"); // Trigger the death animation
+        // Add any additional code here, like disabling player movement or showing a game over screen
     }
 }
